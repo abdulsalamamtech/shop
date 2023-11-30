@@ -1,20 +1,7 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
-
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
+@section('content')
 
 
     <!-- CONTENT WRAPPER -->
@@ -50,9 +37,9 @@ include("includes/navbar.php");
 
 											<tbody>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p1.jpg" alt="product image"/></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p1.jpg') }}" alt="product image"/></td>
 													<td>Baby shoes</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u1.jpg" alt="product image"/></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u1.jpg') }}" alt="product image"/></td>
 													<td>Johnas Pintu</td>
 													<td>
 														<div class="ec-t-rate">
@@ -83,9 +70,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p7.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p7.jpg') }}" alt="product image" /></td>
 													<td>Full Sleeve Coton Shirt</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u7.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u7.jpg') }}" alt="product image" /></td>
 													<td>Alona Nusk</td>
 													<td>
 														<div class="ec-t-rate">
@@ -116,9 +103,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p8.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p8.jpg') }}" alt="product image" /></td>
 													<td>Smart Digital Watches</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u8.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u8.jpg') }}" alt="product image" /></td>
 													<td>Giorgia Punte</td>
 													<td>
 														<div class="ec-t-rate">
@@ -149,9 +136,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p1.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p1.jpg') }}" alt="product image" /></td>
 													<td>Baby shoes</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u1.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u1.jpg') }}" alt="product image" /></td>
 													<td>Johnas Pintu</td>
 													<td>
 														<div class="ec-t-rate">
@@ -182,9 +169,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p2.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p2.jpg') }}" alt="product image" /></td>
 													<td>Full Sleeve With Cap</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u2.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u2.jpg') }}" alt="product image" /></td>
 													<td>Mehuli Bronita</td>
 													<td>
 														<div class="ec-t-rate">
@@ -215,9 +202,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p3.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p3.jpg') }}" alt="product image" /></td>
 													<td>T-Shirt for Men</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u3.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u3.jpg') }}" alt="product image" /></td>
 													<td>Hardi Katlin</td>
 													<td>
 														<div class="ec-t-rate">
@@ -248,9 +235,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p4.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p4.jpg') }}" alt="product image" /></td>
 													<td>Round Cap for Men</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u4.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u4.jpg') }}" alt="product image" /></td>
 													<td>Ketan Khatri</td>
 													<td>
 														<div class="ec-t-rate">
@@ -281,9 +268,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p5.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p5.jpg') }}" alt="product image" /></td>
 													<td>Blue ladies Bag for Woman</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u5.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u5.jpg') }}" alt="product image" /></td>
 													<td>Aliza Bravin</td>
 													<td>
 														<div class="ec-t-rate">
@@ -314,9 +301,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p6.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p6.jpg') }}" alt="product image" /></td>
 													<td>Doctor Kit for Kids</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u6.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u6.jpg') }}" alt="product image" /></td>
 													<td>Methue Liliza</td>
 													<td>
 														<div class="ec-t-rate">
@@ -347,9 +334,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p7.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p7.jpg') }}" alt="product image" /></td>
 													<td>Full Sleeve Coton Shirt</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u7.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u7.jpg') }}" alt="product image" /></td>
 													<td>Alona Nusk</td>
 													<td>
 														<div class="ec-t-rate">
@@ -380,9 +367,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p8.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p8.jpg') }}" alt="product image" /></td>
 													<td>Smart Digital Watches</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u8.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u8.jpg') }}" alt="product image" /></td>
 													<td>Giorgia Punte</td>
 													<td>
 														<div class="ec-t-rate">
@@ -413,9 +400,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p1.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p1.jpg') }}" alt="product image" /></td>
 													<td>Baby shoes</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u1.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u1.jpg') }}" alt="product image" /></td>
 													<td>Johnas Pintu</td>
 													<td>
 														<div class="ec-t-rate">
@@ -446,9 +433,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p2.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p2.jpg') }}" alt="product image" /></td>
 													<td>Full Sleeve With Cap</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u2.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u2.jpg') }}" alt="product image" /></td>
 													<td>Mehuli Bronita</td>
 													<td>
 														<div class="ec-t-rate">
@@ -479,9 +466,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p3.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p3.jpg') }}" alt="product image" /></td>
 													<td>T-Shirt for Men</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u3.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u3.jpg') }}" alt="product image" /></td>
 													<td>Hardi Katlin</td>
 													<td>
 														<div class="ec-t-rate">
@@ -512,9 +499,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p4.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p4.jpg') }}" alt="product image" /></td>
 													<td>Round Cap for Men</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u4.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u4.jpg') }}" alt="product image" /></td>
 													<td>Ketan Khatri</td>
 													<td>
 														<div class="ec-t-rate">
@@ -545,9 +532,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p5.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p5.jpg') }}" alt="product image" /></td>
 													<td>Blue ladies Bag for Woman</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u5.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u5.jpg') }}" alt="product image" /></td>
 													<td>Aliza Bravin</td>
 													<td>
 														<div class="ec-t-rate">
@@ -578,9 +565,9 @@ include("includes/navbar.php");
 													</td>
 												</tr>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p6.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p6.jpg') }}" alt="product image" /></td>
 													<td>Doctor Kit for Kids</td>
-													<td><img class="tbl-thumb" src="assets/img/user/u6.jpg" alt="product image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/user/u6.jpg') }}" alt="product image" /></td>
 													<td>Methue Liliza</td>
 													<td>
 														<div class="ec-t-rate">
@@ -625,6 +612,4 @@ include("includes/navbar.php");
     <!-- End Content Wrapper -->
 
 <!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection

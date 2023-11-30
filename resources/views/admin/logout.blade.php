@@ -1,5 +1,0 @@
-<?php
-
-echo "YOU HAVE SUCCESFULLY LOGOUT";
-
-?>

@@ -1,20 +1,7 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
-
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
+@section('content')
 
 
     <!-- CONTENT WRAPPER -->
@@ -23,7 +10,7 @@ include("includes/navbar.php");
         <!-- START OF CONTENT -->
         <div class="content">
             <!-- ALL PAGE CONTENT -->
-            <h1>Comments</h1>
+            <h1>Mail Content</h1>
             <!-- END OF ALL PAGE CONTENT -->
         </div> 
         <!-- End Content -->
@@ -32,6 +19,4 @@ include("includes/navbar.php");
     <!-- End Content Wrapper -->
 
 <!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection

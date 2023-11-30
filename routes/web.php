@@ -173,5 +173,62 @@ Route::prefix('admin')->group(function (){
 
     });
 
+    // Admin Mail Route
+    Route::prefix('mails')->group(function (){
+
+        Route::get('/', function(){
+            return view('admin.mails.mail');
+        });
+
+        Route::get('/send', function(){
+            return view('admin.mails.mail-send');
+        });
+
+        Route::get('/content', function(){
+            return view('admin.mails.mail-content');
+        });
+
+    });
+
+    // Admin Settings Route
+    Route::prefix('settings')->group(function (){
+
+        Route::get('/', function(){
+            return view('admin.settings.setting-admin');
+        });
+
+        Route::get('/admin', function(){
+            return view('admin.settings.setting-admin');
+        });
+
+        Route::get('/website', function(){
+            return view('admin.settings.setting-website');
+        });
+
+    });
+
+    // Admin Auth Route
+    Route::prefix('auth')->group(function (){
+
+        Route::get('/login', function(){
+            return view('admin.auth.login');
+        });
+
+        Route::get('/register', function(){
+            return view('admin.auth.register');
+        });
+        
+    });
+
+    // Admin Notifications Route
+    Route::get('/notifications', function(){
+        return view('admin.notifications');
+    });
+
+    // Admin Reviews Route
+    Route::get('/reviews', function(){
+        return view('admin.reviews');
+    });
+
 });
 
