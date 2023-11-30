@@ -2,13 +2,13 @@
 
 
 <!-- HEADER -->
-@include("admin.includes.header")
+@include("admin.layouts.header")
 
 <!-- SIDEBAR -->
-@include("admin.includes.sidebar")
+@include("admin.layouts.sidebar")
 
 <!-- NAVBAR -->
-@include("admin.includes.navbar")
+@include("admin.layouts.navbar")
 
 
 <!-- YIELD ADMIN CONTENT -->
@@ -16,4 +16,4 @@
 
 
 <!-- FOOTER -->
-@include("admin.includes.footer")
+@include("admin.layouts.footer")

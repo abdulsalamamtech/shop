@@ -1,20 +1,7 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
-
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
+@section('content')
 
 
     <!-- CONTENT WRAPPER -->
@@ -56,7 +43,7 @@ include("includes/navbar.php");
 
 											<tbody>
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p1.jpg" alt="Product Image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p1.jpg') }}" alt="Product Image" /></td>
 													<td>Baby shoes</td>
 													<td>$20</td>
 													<td>25% OFF</td>
@@ -84,7 +71,7 @@ include("includes/navbar.php");
 												</tr>
 
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p4.jpg" alt="Product Image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p4.jpg') }}" alt="Product Image" /></td>
 													<td>Round Cap with Belt</td>
 													<td>$10</td>
 													<td>30% OFF</td>
@@ -112,7 +99,7 @@ include("includes/navbar.php");
 												</tr>
 
 												<tr>
-													<td><img class="tbl-thumb" src="assets/img/products/p5.jpg" alt="Product Image" /></td>
+													<td><img class="tbl-thumb" src="{{ URL('assets/img/products/p5.jpg') }}" alt="Product Image" /></td>
 													<td>Purse For Woman</td>
 													<td>$20</td>
 													<td>30% OFF</td>
@@ -147,13 +134,10 @@ include("includes/navbar.php");
 						</div>
 					</div>
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
-<!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection

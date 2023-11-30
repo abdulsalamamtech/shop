@@ -10,8 +10,8 @@
                     font-size: 35px;
                 }
             </style>
-            <a href="index.php" title="ECommerce">
-                <!-- <img class="ec-brand-icon" src="assets/img/logo/ec-site-logo.png" alt="" /> -->
+            <a href="index" title="Shop Dashboard">
+                <img class="ec-brand-icon" src="{{ URL('assets/img/logo/ec-site-logo.png') }}" alt="" />
                 <i class="mdi mdi-cart mylogo"></i>
                 <span class="ec-brand-name text-truncate">Shop</span>
             </a>
@@ -21,9 +21,10 @@
         <div class="ec-navigation" data-simplebar>
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
+
                 <!-- Dashboard -->
-                <li class="<?= (isset($_GET['active']))? 'active' : ''?>">
-                    <a class="sidenav-item-link" href="index.php">
+                <li class="{{ (request()->is('admin') ? 'active' : 'not-active') }}">
+                    <a class="sidenav-item-link" href="/admin">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -31,7 +32,7 @@
                 </li>
 
                 <!-- Customers -->
-                <li class="has-sub">
+                <li class="{{ (request()->is('admin/customers*') ? 'active' : 'not-active') }} has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">Customers</span> <b class="caret"></b>
@@ -39,12 +40,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="customer.php">
+                                <a class="sidenav-item-link" href="admin/customers">
                                     <span class="nav-text">All Customers</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="customer-grid.php">
+                                <a class="sidenav-item-link" href="admin/customers/grid">
                                     <span class="nav-text">Customers Grid</span>
                                 </a>
                             </li>
@@ -54,7 +55,7 @@
                 </li>
 
                 <!-- Category -->
-                <li class="has-sub">
+                <li class="{{ (request()->is('admin/categories*') ? 'active' : 'not-active') }}  has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-dns"></i>
                         <span class="nav-text">Categories</span> <b class="caret"></b>
@@ -62,22 +63,22 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="category.php">
+                                <a class="sidenav-item-link" href="admin/categories">
                                     <span class="nav-text">Main Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="category-add.php">
+                                <a class="sidenav-item-link" href="admin/categories/add">
                                     <span class="nav-text">Add Main Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="sub-category.php">
+                                <a class="sidenav-item-link" href="admin/sub-categories">
                                     <span class="nav-text">Sub Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="sub-category-add.php">
+                                <a class="sidenav-item-link" href="admin/sub-categories/add">
                                     <span class="nav-text">Add Sub Category</span>
                                 </a>
                             </li>
@@ -87,7 +88,7 @@
 
 
                 <!-- Brands -->
-                <li class="has-sub">
+                <li class="{{ (request()->is('admin/brands*') ? 'active' : 'not-active') }} has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-palette"></i>
                         <span class="nav-text">Brands</span> <b class="caret"></b>
@@ -95,12 +96,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="brand.php">
+                                <a class="sidenav-item-link" href="admin/brands">
                                     <span class="nav-text">All Brands</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="brand-add.php">
+                                <a class="sidenav-item-link" href="admin/brands/add">
                                     <span class="nav-text">Add Brand</span>
                                 </a>
                             </li>
@@ -110,7 +111,7 @@
 
 
                 <!-- Products -->
-                <li class="has-sub">
+                <li class="{{ (request()->is('admin/products*') ? 'active' : 'not-active') }} has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-palette-advanced"></i>
                         <span class="nav-text">Products</span> <b class="caret"></b>
@@ -118,17 +119,17 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="product.php">
+                                <a class="sidenav-item-link" href="products">
                                     <span class="nav-text">All Product</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="product-grid.php">
+                                <a class="sidenav-item-link" href="products/grid">
                                     <span class="nav-text">Product Grid</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="product-add.php">
+                                <a class="sidenav-item-link" href="products/add">
                                     <span class="nav-text">Add Product</span>
                                 </a>
                             </li>
@@ -137,7 +138,7 @@
                 </li>
 
                 <!-- Orders -->
-                <li class="has-sub">
+                <li class="{{ (request()->is('admin/orders*') ? 'active' : 'not-active') }} has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Orders</span> <b class="caret"></b>
@@ -145,17 +146,17 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="order-new.php">
+                                <a class="sidenav-item-link" href="orders/new">
                                     <span class="nav-text">New Order</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="order-history.php">
+                                <a class="sidenav-item-link" href="orders/history">
                                     <span class="nav-text">Order History</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="order-return.php">
+                                <a class="sidenav-item-link" href="orders/return">
                                     <span class="nav-text">Returned Order</span>
                                 </a>
                             </li>
@@ -166,7 +167,7 @@
 
                 <!-- Notification -->
                 <li class="">
-                    <a class="sidenav-item-link" href="notification.php">
+                    <a class="sidenav-item-link" href="notification">
                         <i class="mdi mdi-bell"></i>
                         <span class="nav-text">Notification</span>
                     </a>
@@ -181,12 +182,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="review.php">
+                                <a class="sidenav-item-link" href="review">
                                     <span class="nav-text">All Review</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="comment.php">
+                                <a class="sidenav-item-link" href="comment">
                                     <span class="nav-text">Comments</span>
                                 </a>
                             </li>
@@ -203,15 +204,15 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="icons" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="mail.php">
+                                <a class="sidenav-item-link" href="mail">
                                     <span class="nav-text">My Mail</span>
                                 </a>
-                            </li>                      
+                            </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="mail-send.php">
+                                <a class="sidenav-item-link" href="mail-send">
                                     <span class="nav-text">Send Mail</span>
                                 </a>
-                            </li>                     
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -225,15 +226,15 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="icons" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="subscriber.php">
+                                <a class="sidenav-item-link" href="subscriber">
                                     <span class="nav-text">All Subscribers</span>
                                 </a>
-                            </li>                      
+                            </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="subscriber-mail.php">
+                                <a class="sidenav-item-link" href="subscriber-mail">
                                     <span class="nav-text">Subscribers Mail</span>
                                 </a>
-                            </li>                      
+                            </li>
                         </ul>
                     </div>
                     <hr>
@@ -249,15 +250,15 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="icons" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="setting-admin.php">
+                                <a class="sidenav-item-link" href="setting-admin">
                                     <span class="nav-text">Admin Setting</span>
                                 </a>
-                            </li>                      
+                            </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="setting-website.php">
+                                <a class="sidenav-item-link" href="setting-website">
                                     <span class="nav-text">Website settings</span>
                                 </a>
-                            </li>                      
+                            </li>
                         </ul>
                     </div>
                 </li>

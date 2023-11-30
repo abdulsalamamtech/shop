@@ -7,10 +7,10 @@
 			<footer class="footer mt-auto">
 				<div class="copyright bg-white">
 					<p>
-						Copyright &copy; <span id="ec-year"></span>
+						2023 &copy; <span id="ec-year"></span>
                         <a class="text-primary" href="index.php" target="_blank">
-                         Shop Admin Dashboard
-                        </a>. All Rights Reserved.
+                            {{config('app.name', 'Shop')}} Admin Dashboard
+                        </a>. All Rights Reserved. 
 					</p>
 					<!-- <p>
 						Copyright &copy; <span id="ec-year"></span><a class="text-primary"
@@ -21,10 +21,10 @@
 			</footer>
             <!-- END OF FOOTER -->
 
-		</div> 
+		</div>
         <!-- End Page Wrapper  from navbar-->
-    
-	</div> 
+
+	</div>
     <!-- End Wrapper -->
 
 	<!-- Common Javascript -->
@@ -56,6 +56,6 @@
 </body>
 
 
-<!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v34/ekka-admin/index.php 
+<!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v34/ekka-admin/index.php
 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Jun 2023 09:55:32 GMT -->
 </html>

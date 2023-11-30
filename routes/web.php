@@ -59,13 +59,13 @@ Route::prefix('admin')->group(function (){
     Route::prefix('brands')->group(function (){
         Route::get('/', function(){
             return view('admin.brands.brand');
-        });
+        })->name('admin.brands.index');
         Route::get('/add', function(){
             return view('admin.brands.brand-add');
-        });
+        })->name('admin.brands.create');
         Route::get('/info', function(){
             return view('admin.brands.brand-info');
-        });
+        })->name('admin.brands.show');
     });
 
 
@@ -105,7 +105,7 @@ Route::prefix('admin')->group(function (){
     Route::prefix('customers')->group(function (){
         Route::get('/', function(){
             return view('admin.customers.customer');
-        });
+        })->name('customers.index');
         Route::get('/grid', function(){
             return view('admin.customers.customer-grid');
         });

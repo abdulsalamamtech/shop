@@ -1,20 +1,11 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
+@section('content')
 
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
+{{-- THEY IS SOME ERROR HERE ON THEIS PRODUCT DETAILS PAGE --}}
+{{-- THEY IS SOME ERROR HERE ON THEIS PRODUCT DETAILS PAGE --}}
+{{-- THEY IS SOME ERROR HERE ON THEIS PRODUCT DETAILS PAGE --}}
 
 
     <!-- CONTENT WRAPPER -->
@@ -44,52 +35,52 @@ include("includes/navbar.php");
 
 								<div class="card-body product-detail">
 									<div class="row">
-										<div class="col-xl-4 col-lg-6">
+										<div class="">
 											<div class="row">
 												<div class="single-pro-img">
 													<div class="single-product-scroll">
 														<div class="single-product-cover">
 															<div class="single-slide zoom-image-hover">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_1.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_1.jpg') }}" alt="">
 															</div>
 															<div class="single-slide zoom-image-hover">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_2.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_2.jpg') }}" alt="">
 															</div>
 															<div class="single-slide zoom-image-hover">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_3.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_3.jpg') }}" alt="">
 															</div>
 															<div class="single-slide zoom-image-hover">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_4.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_4.jpg') }}" alt="">
 															</div>
 															<div class="single-slide zoom-image-hover">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_5.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_5.jpg') }}" alt="">
 															</div>
 														</div>
 														<div class="single-nav-thumb">
 															<div class="single-slide">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_1.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_1.jpg') }}" alt="">
 															</div>
 															<div class="single-slide">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_2.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_2.jpg') }}" alt="">
 															</div>
 															<div class="single-slide">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_3.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_3.jpg') }}" alt="">
 															</div>
 															<div class="single-slide">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_4.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_4.jpg') }}" alt="">
 															</div>
 															<div class="single-slide">
 																<img class="img-responsive"
-																	src="assets/img/products/pd_5.jpg" alt="">
+																	src="{{ URL('assets/img/products/pd_5.jpg') }}" alt="">
 															</div>
 														</div>
 													</div>
@@ -172,7 +163,7 @@ include("includes/navbar.php");
 												<div class="card-body text-center">
 													<a href="javascript:0" class="text-secondary d-inline-block">
 														<div class="image mb-3">
-															<img src="assets/img/user/u-xl-4.jpg"
+															<img src="{{ URL('assets/img/user/u-xl-4.jpg') }}"
 																class="img-fluid rounded-circle" alt="Avatar Image">
 														</div>
 
@@ -266,7 +257,7 @@ include("includes/navbar.php");
 													<div class="ec-t-review-wrapper">
 														<div class="ec-t-review-item">
 															<div class="ec-t-review-avtar">
-																<img src="assets/img/review-image/1.jpg" alt="">
+																<img src="{{ URL('assets/img/review-image/1.jpg') }}" alt="">
 															</div>
 															<div class="ec-t-review-content">
 																<div class="ec-t-review-top">
@@ -289,7 +280,7 @@ include("includes/navbar.php");
 														</div>
 														<div class="ec-t-review-item">
 															<div class="ec-t-review-avtar">
-																<img src="assets/img/review-image/2.jpg" alt="">
+																<img src="{{ URL('assets/img/review-image/2.jpg') }}" alt="">
 															</div>
 															<div class="ec-t-review-content">
 																<div class="ec-t-review-top">
@@ -316,18 +307,17 @@ include("includes/navbar.php");
 											</div>
 										</div>
 									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 <!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection

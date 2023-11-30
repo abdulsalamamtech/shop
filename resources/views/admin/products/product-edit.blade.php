@@ -1,21 +1,7 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
-
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
-
+@section('content')
 
     <!-- CONTENT WRAPPER -->
     <div class="ec-content-wrapper">
@@ -25,13 +11,11 @@ include("includes/navbar.php");
             <!-- ALL PAGE CONTENT -->
             <h1>Edit Product</h1>
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 <!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection

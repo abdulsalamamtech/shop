@@ -1,20 +1,7 @@
-<?php ?>
+<!-- Extends this page to master page -->
+@extends('layouts.master')
 
-
-<!-- HEADER -->
-<?php 
-include("includes/header.php");
-?>
-
-<!-- SIDEBAR -->
-<?php 
-include("includes/sidebar.php");
-?>
-
-<!-- NAVBAR -->
-<?php 
-include("includes/navbar.php");
-?>
+@section('content')
 
 
     <!-- CONTENT WRAPPER -->
@@ -31,7 +18,7 @@ include("includes/navbar.php");
 							</p>
 						</div>
 						<div>
-							<a href="product.php" class="btn btn-primary"> View All Porduct</a>
+							<a href="products" class="btn btn-primary"> View All Porduct</a>
 						</div>
 					</div>
 
@@ -45,7 +32,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p1.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p1.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -67,7 +54,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p2.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p2.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -89,7 +76,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p3.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p3.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -111,7 +98,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p4.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p4.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -133,7 +120,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p5.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p5.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -155,7 +142,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p6.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p6.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -177,7 +164,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p1.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p1.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -199,7 +186,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p2.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p2.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -221,7 +208,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p9.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p9.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -243,7 +230,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p10.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p10.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -265,7 +252,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p11.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p11.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -287,7 +274,7 @@ include("includes/navbar.php");
 											<div class="card-wrapper">
 												<div class="card-container">
 													<div class="card-top">
-														<img class="card-image" src="assets/img/products/p12.jpg"
+														<img class="card-image" src="{{ URL('assets/img/products/p12.jpg') }}"
 															alt="" />
 													</div>
 													<div class="card-bottom">
@@ -313,13 +300,11 @@ include("includes/navbar.php");
 						</div>
 					</div>
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 <!-- FOOTER -->
-<?php 
-include("includes/footer.php");
-?>
+@endsection
