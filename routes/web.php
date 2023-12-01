@@ -46,6 +46,26 @@ Route::get('/contact', function () {
 
 
 
+    // Auth users
+    Route::get('/users', function(){
+        return request()->all();
+    })->name('users.create');
+
+    Route::get('/passsword-reset', function(){
+        return request()->all();
+    })->name('users.password-reset');
+
+    Route::get('/login', function(){
+        return view('auth-users.login');
+    })->name('users.login');
+
+    Route::get('/register', function(){
+        return view('auth-users.register');
+    })->name('users.register');
+
+
+
+
 // ADMIN DIRECTORY
 Route::prefix('admin')->group(function (){
 
@@ -217,7 +237,7 @@ Route::prefix('admin')->group(function (){
         Route::get('/register', function(){
             return view('admin.auth.register');
         });
-        
+
     });
 
     // Admin Notifications Route
