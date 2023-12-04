@@ -63,6 +63,10 @@ Route::get('/contact', function () {
         return view('auth-users.register');
     })->name('users.register');
 
+    Route::get('/email-comfirmation', function(){
+        return request()->all();
+    })->name('users.email-comfirmation');
+
 
 
 
