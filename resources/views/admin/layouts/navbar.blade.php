@@ -2,7 +2,7 @@
 
     <!--  PAGE WRAPPER  to footer-->
     <div class="ec-page-wrapper">
-        
+
     <!-- Header -->
     <header class="ec-main-header" id="header">
         <nav class="navbar navbar-static-top navbar-expand-lg">
@@ -30,12 +30,12 @@
                     <li class="dropdown user-menu">
                         <button class="dropdown-toggle nav-link ec-drop" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{ URL('assets/img/user/user.jpg') }}" class="user-image" alt="User Image" />
+                            <img src="{{ URL('assets/img/user/user.png') }}" class="user-image" alt="User Image" />
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
                             <!-- User image -->
                             <li class="dropdown-header">
-                                <img src="{{ URL('assets/img/user/user.jpg') }}" class="img-circle" alt="User Image" />
+                                <img src="{{ URL('assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
                                 <div class="d-inline-block">
                                     John Deo <small class="pt-1">john.example@gmail.com</small>
                                 </div>
@@ -627,6 +627,6 @@
                     </li>
                 </ul>
             </div>
-            
+
         </nav>
     </header>

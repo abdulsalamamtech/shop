@@ -24931,3 +24931,10 @@ div.dataTables_wrapper div.dataTables_filter {
   border-radius: 15px;
 }
 /*# sourceMappingURL=ekka.css.map */
+
+
+
+/* Error Message */
+.error{
+    color: #dc3545;
+}

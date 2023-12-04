@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/welcome', function () {
 // SHOP HOME PAGE
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::get('/shop', function () {
     return view('shop');
@@ -53,19 +54,30 @@ Route::get('/contact', function () {
 
     Route::get('/passsword-reset', function(){
         return request()->all();
-    })->name('users.password-reset');
+    })->name('auth.password-reset');
 
+
+
+    // Display the login form
     Route::get('/login', function(){
-        return view('auth-users.login');
-    })->name('users.login');
+        return view('auth.login');
+    })->name('auth.login');
 
+    // Display the registration form
     Route::get('/register', function(){
-        return view('auth-users.register');
-    })->name('users.register');
+        return view('auth.register');
+    })->name('auth.create');
+
+    // Register and store new user
+    Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+    // Login user
+    Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+
 
     Route::get('/email-comfirmation', function(){
         return request()->all();
-    })->name('users.email-comfirmation');
+    })->name('auth.email-comfirmation');
 
 
 

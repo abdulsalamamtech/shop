@@ -35,58 +35,39 @@
 
 								<div class="card-body product-detail">
 									<div class="row">
-										<div class="">
+
+                                        <!-- Product image slide-->
+										<div class="product-image">
 											<div class="row">
-												<div class="single-pro-img">
-													<div class="single-product-scroll">
-														<div class="single-product-cover">
-															<div class="single-slide zoom-image-hover">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_1.jpg') }}" alt="">
-															</div>
-															<div class="single-slide zoom-image-hover">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_2.jpg') }}" alt="">
-															</div>
-															<div class="single-slide zoom-image-hover">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_3.jpg') }}" alt="">
-															</div>
-															<div class="single-slide zoom-image-hover">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_4.jpg') }}" alt="">
-															</div>
-															<div class="single-slide zoom-image-hover">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_5.jpg') }}" alt="">
-															</div>
-														</div>
-														<div class="single-nav-thumb">
-															<div class="single-slide">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_1.jpg') }}" alt="">
-															</div>
-															<div class="single-slide">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_2.jpg') }}" alt="">
-															</div>
-															<div class="single-slide">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_3.jpg') }}" alt="">
-															</div>
-															<div class="single-slide">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_4.jpg') }}" alt="">
-															</div>
-															<div class="single-slide">
-																<img class="img-responsive"
-																	src="{{ URL('assets/img/products/pd_5.jpg') }}" alt="">
-															</div>
-														</div>
-													</div>
-												</div>
+                                                {{-- Slide Images --}}
+                                                <div class="">
+                                                    <div class="single-slide">
+                                                        <img class="img-responsive"
+                                                            src="{{ URL('assets/img/products/pd_1.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="single-slide">
+                                                        <img class="img-responsive"
+                                                            src="{{ URL('assets/img/products/pd_2.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="single-slide">
+                                                        <img class="img-responsive"
+                                                            src="{{ URL('assets/img/products/pd_3.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="single-slide">
+                                                        <img class="img-responsive"
+                                                            src="{{ URL('assets/img/products/pd_4.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="single-slide">
+                                                        <img class="img-responsive"
+                                                            src="{{ URL('assets/img/products/pd_5.jpg') }}" alt="">
+                                                    </div>
+                                                </div>
 											</div>
 										</div>
+                                        <!-- End Product image slide-->
+
+                                        <!-- Product Overview -->
+                                        {{-- PRODUCT OVERVIEW --}}
 										<div class="col-xl-5 col-lg-6">
 											<div class="row product-overview">
 												<div class="col-12">
@@ -158,6 +139,8 @@
 												</div>
 											</div>
 										</div>
+                                        <!-- Sellers card -->
+                                        {{-- SELLERS CARD --}}
 										<div class="col-xl-3 col-lg-12 u-card">
 											<div class="card card-default seller-card">
 												<div class="card-body text-center">
@@ -196,6 +179,7 @@
 										</div>
 									</div>
 
+                                    {{-- REVIEWS --}}
 									<div class="row review-rating mt-4">
 										<div class="col-12">
 											<ul class="nav nav-tabs" id="myRatingTab" role="tablist">
