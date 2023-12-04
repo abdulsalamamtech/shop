@@ -11,7 +11,7 @@
                 }
             </style>
             <a href="index" title="Shop Dashboard">
-                <img class="ec-brand-icon" src="{{ URL('assets/img/logo/ec-site-logo.png') }}" alt="" />
+                <img class="ec-brand-icon" src="{{!! URL('assets/img/logo/ec-site-logo.png') !!}}" alt="" />
                 <i class="mdi mdi-cart mylogo"></i>
                 <span class="ec-brand-name text-truncate">Shop</span>
             </a>
