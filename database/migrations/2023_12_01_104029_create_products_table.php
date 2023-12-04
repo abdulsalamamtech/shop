@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('short_descriptin');
             $table->string('descriptin');
             $table->string('information');
-            $table->srting('product_images');
-            $table->srting('colors');
-            $table->srting('sizes');
-            // Status for active 
+            $table->string('product_images');
+            $table->string('colors');
+            $table->string('sizes');
+            // Status for active
             $table->tinyInteger('status');
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
             $table->foreignId('sub_category_id')->constrained('sub_categories')->cascadeOnDelete();
