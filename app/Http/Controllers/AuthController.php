@@ -23,8 +23,8 @@ class AuthController extends Controller
         // Hash the user password
         $validated['password'] = Hash::make($validated['password']);
 
-        dd($validated);
-        
+        // dd($validated);
+
         // Create new user
         $user = User::create($validated);
 
@@ -48,6 +48,23 @@ class AuthController extends Controller
     // Login a user
     public function login(Request $request)
     {
-        //
+        // Validate user information
+        $validated = $request->validate([
+            'email' => ['required', 'email','max:255', 'unique:users,email'],
+            'password' => ['required', 'min:8', 'max:255'],
+        ]);
+
+        // Login user
+        if(auth()->attempt($validated)){
+            // To clear information about the previous login user
+            request()->session()->regenerate();
+            // the user id
+            $user_id = auth()->id();
+            // redirect the user to dashboard
+            return redirect()->route('login')->with("success", "login successful!");
+        }
+
+        // return dd($validated);
+        // return dd($user);
     }
 }
