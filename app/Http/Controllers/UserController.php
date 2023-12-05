@@ -12,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(20)->get();
+        $users = User::latest()->paginate(10);
+        // return dd($users);
         return view("users", compact("users"));
     }
 
@@ -21,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('auth-users.register');
+        return view('auth.register');
     }
 
     /**
