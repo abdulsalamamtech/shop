@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('zip_code');
-            // Status for active
-            $table->tinyInteger('status');
+            // Status for active 1 as default
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

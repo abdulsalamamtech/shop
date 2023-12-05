@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            // Status for active 
-            $table->tinyInteger('status');
+            // Status for active 1 as default
+            $table->tinyInteger('status')->default(1);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->timestamps();
         });
