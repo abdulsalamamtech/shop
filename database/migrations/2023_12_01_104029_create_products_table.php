@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('product_images');
             $table->string('colors');
             $table->string('sizes');
-            // Status for active
-            $table->tinyInteger('status');
+            // Status for active 1 as default
+            $table->tinyInteger('status')->default(1);
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
             $table->foreignId('sub_category_id')->constrained('sub_categories')->cascadeOnDelete();
             $table->timestamps();

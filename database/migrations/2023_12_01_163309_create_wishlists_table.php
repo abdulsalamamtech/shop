@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
-            // Status for active
-            $table->tinyInteger('status');
+            // Status for active 1 as default
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
