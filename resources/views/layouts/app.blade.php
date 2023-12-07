@@ -19,12 +19,6 @@
     <h5>Error Message</h5>
     {{ session('error') }}
 </div>
-<div>
-    <form action="{{ route('auth.logout') }}" method="post">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
-</div>
 
 {{-- Yield Content --}}
 @yield('content')

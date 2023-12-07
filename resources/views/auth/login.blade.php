@@ -1,5 +1,4 @@
 @extends('auth.auth')
-{{ session('sucess') ?? 'login feedback' }}
 @section('content')
     <div class="container d-flex align-items-center justify-content-center form-height-login pt-24px pb-24px">
         <div class="row justify-content-center">

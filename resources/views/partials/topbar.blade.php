@@ -12,11 +12,23 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
-                        </div>
+                        @guest
+                            <div class="d-inline-flex align-items-center">
+                                <a href="{{ route('auth.create') }}" class="btn btn-sm btn-light mx-1">Register</a>
+                                <a href="{{ route('auth.show') }}" class="btn btn-sm btn-light mx-1">Login</a>
+                            </div>
+                        @endguest
+                        @auth
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-item" type="button">{{ Auth::user()->name }}</div>
+                                <span class="text-center ml-4 mr-3">{{ Auth::user()->email }}</span>
+                                <form action="{{ route('auth.logout') }}" method="post">
+                                    @csrf
+                                    <input class="dropdown-item" type="submit" value="LogOut">
+                                </form>
+                            </div>
+                        @endauth
                     </div>
                     <div class="btn-group mx-2">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">NGN</button>

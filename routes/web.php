@@ -58,11 +58,11 @@ Route::get('/contact', function () {
     })->name('auth.password-reset');
 
 
-
+    // Start Authenticating the User
     // Display the login form
     Route::get('/login', function(){
         return view('auth.login');
-    })->name('auth.check');
+    })->name('auth.show');
 
 
     // Display the registration form
@@ -77,6 +77,7 @@ Route::get('/contact', function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
     // Logout user
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    // End Authenticating the User
 
 
 
