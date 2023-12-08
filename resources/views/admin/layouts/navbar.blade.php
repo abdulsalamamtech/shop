@@ -9,6 +9,7 @@
             <!-- Sidebar toggle button -->
             <!-- Code for bar &#9776; -->
             <button id="sidebar-toggler" class="sidebar-toggle"></button>
+
             <!-- search form -->
             <div class="search-form d-lg-inline-block">
                 <div class="input-group">
@@ -21,6 +22,7 @@
                 <div id="search-results-container">
                     <ul id="search-results"></ul>
                 </div>
+
             </div>
 
             <!-- navbar right -->
@@ -35,10 +37,20 @@
                         <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
                             <!-- User image -->
                             <li class="dropdown-header">
-                                <img src="{{ URL('assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
-                                <div class="d-inline-block">
-                                    John Deo <small class="pt-1">john.example@gmail.com</small>
-                                </div>
+                                @guest
+                                    <img src="{{ URL('assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
+                                    <div class="d-inline-block">
+                                        John Deo
+                                        <small class="pt-1">john.example@gmail.com</small>
+                                    </div>
+                                @endguest
+                                @auth
+                                    <img src="{{ URL('assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
+                                    <div class="d-inline-block">
+                                        {{ Str::limit(Auth::user()->name, 15, '...') }}
+                                        <small class="pt-1">{{ Str::limit(Auth::user()->email, 20, '...') }}</small>
+                                    </div>
+                                @endauth
                             </li>
                             <li>
                                 <a href="setting-admin.php">
@@ -54,7 +66,15 @@
                                 <a href="javascript:0"> <i class="mdi mdi-eye-settings"></i> Page Setting </a>
                             </li>
                             <li class="dropdown-footer">
-                                <a href="logout"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                {{-- Logout The Admin --}}
+                                <form action="{{ route('auth.logout') }}" method="post">
+                                    @csrf
+                                    <a href="javascript:0">
+                                        <button class="dropdown-item" type="submit" value="LogOut">
+                                            <i class="mdi mdi-logout"></i> Log Out
+                                        </button>
+                                    </a>
+                                </form>
                             </li>
                         </ul>
                     </li>
@@ -629,4 +649,16 @@
             </div>
 
         </nav>
+
+        {{-- Success and Error Messages for testing purposes--}}
+        <div>
+            <h6>Success Message</h6>
+            {{ session('success') }}
+            {{ Auth::user() }}
+        </div>
+        <div>
+            <h6>Error Message</h6>
+            {{ session('error') }}
+        </div>
+
     </header>
