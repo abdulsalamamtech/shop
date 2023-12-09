@@ -18,4 +18,16 @@ class category extends Model
         'name',
         'image',
     ];
+
+
+    /**
+     * Get all of the sub category for the category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subCategories()
+    {
+        return $this->hasMany(SubCategory::class, 'category_id', 'id');
+    }
+
 }

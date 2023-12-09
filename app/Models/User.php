@@ -43,4 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    // Mutators modify attribute to database
+    public function setNameAttribute($value){
+        $this->attributes['name'] = strtolower($value);
+    }
+    
+    // Accessors modify attribute to output
+    public function getNameAttribute($value){
+        return strtoupper($value);
+    }
 }
