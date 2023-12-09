@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +51,62 @@ Route::get('/contact', function () {
 
 
 
-    // Auth users
+    // Users
+    // Get all users
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    // Show the form for creating a new resource.
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    // Save new resource information to database
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    // Show the information of a resource
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    // Show the form to edit a resource
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    // Update the resource
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    // Delete the resource
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+    // Categories
+    Route::prefix('admin')->group(function(){
+        Route::prefix('categories')->group(function(){
+
+            // Get all categories
+            Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+            // Show the form for creating a new resource.
+            Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
+            // Save new resource information to database
+            Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+            // Show the information of a resource
+            Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
+            // Show the form to edit a resource
+            Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+            // Update the resource
+            Route::put('/{category}', [CategoryController::class, 'update'])->name('categories.update');
+            // Delete the resource
+            Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+        });
+        Route::prefix('sub-categories')->group(function(){
+
+            // Get all categories
+            Route::get('/', [SubCategoryController::class, 'index'])->name('categories.sub.index');
+            // Show the form for creating a new resource.
+            Route::get('/create', [SubCategoryController::class, 'create'])->name('categories.sub.create');
+            // Save new resource information to database
+            Route::post('/', [SubCategoryController::class, 'store'])->name('categories.sub.store');
+            // Show the information of a resource
+            Route::get('/{sub_category}', [SubCategoryController::class, 'show'])->name('categories.sub.show');
+            // Show the form to edit a resource
+            Route::get('/{sub_category}/edit', [SubCategoryController::class, 'edit'])->name('categories.sub.edit');
+            // Update the resource
+            Route::put('/{sub_category}', [SubCategoryController::class, 'update'])->name('categories.sub.update');
+            // Delete the resource
+            Route::delete('/{sub_category}', [SubCategoryController::class, 'destroy'])->name('categories.sub.destroy');
+
+        });
+    });
 
 
 
@@ -110,38 +167,6 @@ Route::prefix('admin')->group(function (){
         })->name('admin.brands.show');
     });
 
-
-    // Admin Categories Route
-    Route::prefix('categories')->group(function (){
-
-        Route::get('/', function(){
-            return view('admin.categories.category');
-        });
-        Route::get('/add', function(){
-            return view('admin.categories.category-add');
-        });
-        Route::get('/info', function(){
-            return view('admin.categories.category-detail');
-        });
-        Route::get('/detail', function(){
-            return view('admin.categories.category-detail');
-        });
-        Route::get('/edit', function(){
-            return view('admin.categories.category-edit');
-        });
-
-    });
-
-    // Admin Sub category Route
-    Route::prefix('sub-category')->group(function (){
-
-        Route::get('/', function(){
-            return view('admin.categories.sub-category');
-        });
-        Route::get('/add', function(){
-            return view('admin.categories.sub-category-add');
-        });
-    });
 
     // Admin Customers Route
     Route::prefix('customers')->group(function (){
