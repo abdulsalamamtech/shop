@@ -28,19 +28,18 @@
             <div class="ec-cat-list card card-default mb-24px">
                 <div class="card-body">
                     <div class="ec-cat-form">
-                        <h4>Add Sub Category</h4>
+                        <h4>Edit Sub Category</h4>
 
-                        <form action="{{ route('categories.sub.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('categories.sub.update', $sub_category->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('post')
+                            @method('put')
                             <!-- SELECT MAIN CATEGORY -->
                             <div class="form-group row">
                                 <label for="parent-category" class="col-12 col-form-label">Parent Category</label>
                                 <div class="col-12">
                                     <select id="parent-category" name="category_id" class="custom-select">
-                                        <option value="">Select Category</option>
                                         @forelse ($categories as $category)
-                                            <option value="{{ $category->id }}">
+                                            <option value="{{ $category->id }}" {{$category->id == $sub_category->id ? 'selected' : ''}}>
                                                 {{ $category->name }}
                                             </option>
                                         @empty
@@ -68,7 +67,7 @@
                             <!-- ADD SUB CATEGORY BUTTON -->
                             <div class="row">
                                 <div class="col-12">
-                                    <button name="add_sub_category" type="submit" class="btn btn-primary">Add Sub Category</button>
+                                    <button name="add_sub_category" type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
 
