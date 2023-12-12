@@ -13,12 +13,12 @@
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
                     <h1>Sub Categories</h1>
-                    <p class="breadcrumbs"><span><a href="index.php">Home</a></span>
+                    <p class="breadcrumbs"><span><a href="{{ route('admin') }}">Home</a></span>
                         <span><i class="mdi mdi-chevron-right"></i></span>All Sub Category
                     </p>
                 </div>
                 <div>
-                    <a href="sub-category-add.php">
+                    <a href="{{ route('categories.sub.create') }}">
                         <button type="button" class="btn btn-primary">
                             Add New Sub Category
                         </button>
@@ -134,6 +134,70 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    {{-- Sub Categories --}}
+                                    @forelse ($sub_categories as $sub_category)
+                                    <tr>
+                                        <!-- IMAGE -->
+                                        <td><img class="cat-thumb" src="{{ URL('images/'. $sub_category->Category->image) }}" alt="product image" /></td>
+                                        <!-- CATEGORY -->
+                                        <td>{{ $sub_category->name }}</td>
+                                        <td>
+                                            <span class="ec-sub-cat-list">
+                                                <span class="ec-sub-cat-tag">{{ $sub_category->Category->name }}</span>
+                                            </span>
+                                        </td>
+                                        <!-- NO. OF PRODUCTS -->
+                                        <td>18</td>
+                                        <!-- NO. OF SALES -->
+                                        <td>1061</td>
+                                        <!-- STATUS -->
+                                        <td>{{ $sub_category->status ? 'ACTIVE' : 'Inactive' }}</td>
+                                        <!-- TRENDING -->
+                                        <td>
+                                                @if ($sub_category->count() > 10)
+                                                    <span class="badge badge-success">Top</span>
+                                                @elseif ($sub_category->count() > 1)
+                                                    <span class="badge bg-primary">Medium</span>
+                                                @else
+                                                    <span class="badge bg-danger">Low</span>
+                                                @endif
+                                        </td>
+                                        <!-- ACTIONS -->
+                                        <td>
+                                            <div class="btn-group mb-1">
+                                                <a type="button" href="{{ route('categories.sub.show', $sub_category->id ) }}"
+                                                    class="btn btn-outline-success">Info</a>
+                                                <button type="button"
+                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" data-display="static">
+                                                    <span class="sr-only">Info</span>
+                                                </button>
+
+                                                <div class="dropdown-menu">
+                                                    <!-- EDIT -->
+                                                    <a class="dropdown-item" href="{{ route('categories.sub.edit', $sub_category->id ) }}">Edit</a>
+                                                    <!-- ACTIVATE AND DACTIVATE -->
+                                                    @if ($sub_category->status == 1)
+                                                        <form action="{{ route('categories.sub.deactivate', $sub_category->id ) }}" method="post">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <button class="dropdown-item">Deactivate</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('categories.sub.activate', $sub_category->id ) }}" method="post">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <button class="dropdown-item">Activate</button>
+                                                        </form>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @empty
+                                        <h3>No categories</h3>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -141,10 +205,10 @@
                 </div>
             </div>
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 @endsection
