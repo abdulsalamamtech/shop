@@ -17,6 +17,7 @@ class SubCategory extends Model
      */
     protected $fillable = [
         'name',
+        'status',
         'category_id',
     ];
 
@@ -26,8 +27,18 @@ class SubCategory extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    // public function Category()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
+    public function Category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get all of the products for the sub category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Products()
+    {
+        return $this->hasMany(Product::class, 'sub_category_id', 'id');
+    }
 }
