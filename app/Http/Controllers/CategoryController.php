@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::inRandomOrder()->get();
         return view('admin.categories.category', compact('categories'));
     }
 
@@ -140,6 +140,28 @@ class CategoryController extends Controller
 
             return redirect()->back()->with('success','category deleted successful!');
         }
+
+    }
+
+    /**
+     * Activate the specified resource.
+     */
+    public function activate(Category $category)
+    {
+        $category->status = 1;
+        $category->save();
+        return redirect()->back()->with('success','category activated successful!');
+
+    }
+
+    /**
+     * Deactivate the specified resource.
+     */
+    public function deactivate(Category $category)
+    {
+        $category->status = 0;
+        $category->save();
+        return redirect()->back()->with('success','category deactivated successful!');
 
     }
 }
