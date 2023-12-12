@@ -61,15 +61,15 @@ class SubCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SubCategory $sub_category)
+    public function show(SubCategory $SubCategory)
     {
-        return $sub_category;
+        return $SubCategory;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SubCategory $sub_category)
+    public function edit(SubCategory $SubCategory)
     {
         $categories = Category::all();
         return view("admin.categories.sub-category-edit", compact("categories", "sub_category"));
@@ -79,7 +79,7 @@ class SubCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SubCategory $sub_category)
+    public function update(Request $request, SubCategory $SubCategory)
     {
 
         // Validate resource information
@@ -88,9 +88,9 @@ class SubCategoryController extends Controller
             'category_id' => ['numeric'],
         ]);
 
-        $sub_category->name = $validated['name'];
-        $sub_category->category_id = $request['category_id']?? $validated['category_id'];
-        $saved = $sub_category->save();
+        $SubCategory->name = $validated['name'];
+        $SubCategory->category_id = $request['category_id']?? $validated['category_id'];
+        $saved = $SubCategory->save();
 
         // If the sub category is not successfully saved
         if(!$saved){
@@ -106,9 +106,9 @@ class SubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubCategory $subcategory)
+    public function destroy(SubCategory $SubCategory)
     {
-        $deleted = $subcategory->delete();
+        $deleted = $SubCategory->delete();
 
         if(!$deleted){
             return back()->with('error','something went wrong, please try again later!');
@@ -117,6 +117,28 @@ class SubCategoryController extends Controller
 
             return redirect()->back()->with('success','sub category deleted successful!');
         }
+
+    }
+    
+    /**
+     * Activate the specified resource.
+     */
+    public function activate(SubCategory $SubCategory)
+    {
+        $SubCategory->status = 1;
+        $SubCategory->save();
+        return redirect()->back()->with('success','sub category activated successful!');
+
+    }
+
+    /**
+     * Deactivate the specified resource.
+     */
+    public function deactivate(SubCategory $SubCategory)
+    {
+        $SubCategory->status = 0;
+        $SubCategory->save();
+        return redirect()->back()->with('success','sub category deactivated successful!');
 
     }
 }
