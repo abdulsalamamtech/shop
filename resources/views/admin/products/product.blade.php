@@ -13,11 +13,11 @@
             <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
 						<div>
 							<h1>Product List</h1>
-							<p class="breadcrumbs"><span><a href="index.php">Home</a></span>
+							<p class="breadcrumbs"><span><a href="{{ route('admin') }}">Home</a></span>
 								<span><i class="mdi mdi-chevron-right"></i></span>All Product</p>
 						</div>
 						<div>
-							<a href="product-add.php" class="btn btn-primary"> Add New Porduct</a>
+							<a href="{{ route('products.create') }}" class="btn btn-primary"> Add New Porduct</a>
 						</div>
 					</div>
 					<div class="row">

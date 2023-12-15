@@ -46,16 +46,16 @@
                                     </div>
                                     <!-- CATEGORY IMAGE -->
                                     <div class="form-group row">
-                                        <label class="col-12 col-form-label">Category Image</label>
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-4">
                                                       <img src="{{URL('images/'. $category->image ?? old('image')) }}" alt="category image {{ $category->name }}"
                                                           class="mx-auto d-block m-2"
                                                           height="200px" width="200px">
-                                                  </div>
                                                 </div>
-                                              </div>
+                                            </div>
+                                        </div>
+                                        <label class="col-12 col-form-label">Category Image</label>
                                         <div class="col-12">
                                             <input type="file" id="category-image" name="image" value="{{ old('image') }}"
                                             class="form-control {{ $errors->first('image')? 'form-error' : 'form-success' }}">

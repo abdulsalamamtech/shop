@@ -19,7 +19,7 @@
 							</p>
 						</div>
 						<div>
-							<a href="customer.php" class="btn btn-primary">View All Customers</a>
+							<a href="{{ route('customers.index') }}" class="btn btn-primary">View All Customers</a>
 						</div>
 					</div>
 
@@ -48,54 +48,34 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-6 col-xl-4 mb-24px">
-							<div class="ec-user-card card card-default p-4 view-detail"
-									data-bs-toggle="modal" data-bs-target="#modalContact">
-									<i class="mdi mdi-eye-plus-outline"></i>
-								<a class="media text-secondary">
-									<img src=" {{URL('assets/img/user/u-xl-1.jpg' ) }}" class="mr-3 img-fluid" alt="Avatar Image">
+                        @forelse ($customers as $customer)
+                            <div class="col-lg-6 col-xl-4 mb-24px">
+                                <div class="ec-user-card card card-default p-4 view-detail"
+                                        data-bs-toggle="modal" data-bs-target="#modalContact">
+                                        <i class="mdi mdi-eye-plus-outline"></i>
+                                    <a class="media text-secondary">
+                                        <img src=" {{URL('assets/img/user/u-xl-1.jpg' ) }}" class="mr-3 img-fluid" alt="Avatar Image">
 
-									<div class="media-body">
-										<h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+                                        <div class="media-body">
+                                            <h5 class="mt-0 mb-2 text-dark">{{ Str::limit($customer->name, 15, '...') }}</h5>
 
-										<ul class="list-unstyled">
-											<li class="d-flex mb-1">
-												<i class="mdi mdi-email mr-1"></i>
-												<span>exmaple@email.com</span>
-											</li>
-											<li class="d-flex mb-1">
-												<i class="mdi mdi-phone mr-1"></i>
-												<span>(123) 888 777 632</span>
-											</li>
-										</ul>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-6 col-xl-4 mb-24px">
-							<div class="ec-user-card card card-default p-4 view-detail"
-									data-bs-toggle="modal" data-bs-target="#modalContact">
-									<i class="mdi mdi-eye-plus-outline"></i>
-								<a class="media text-secondary">
-									<img src=" {{URL('assets/img/user/u-xl-1.jpg' ) }}" class="mr-3 img-fluid" alt="Avatar Image">
-
-									<div class="media-body">
-										<h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-										<ul class="list-unstyled">
-											<li class="d-flex mb-1">
-												<i class="mdi mdi-email mr-1"></i>
-												<span>exmaple@email.com</span>
-											</li>
-											<li class="d-flex mb-1">
-												<i class="mdi mdi-phone mr-1"></i>
-												<span>(123) 888 777 632</span>
-											</li>
-										</ul>
-									</div>
-								</a>
-							</div>
-						</div>
+                                            <ul class="list-unstyled">
+                                                <li class="d-flex mb-1">
+                                                    <i class="mdi mdi-email mr-1"></i>
+                                                    <span>{{ Str::limit($customer->email, 15, '...') }}</span>
+                                                </li>
+                                                <li class="d-flex mb-1">
+                                                    <i class="mdi mdi-phone mr-1"></i>
+                                                    <span>(234) 909 9192 2467</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @empty
+                            <div>No Customer</div>
+                        @endforelse
 
 					</div>
 
@@ -171,10 +151,10 @@
 					</div>
 
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 @endsection

@@ -19,10 +19,10 @@
 					</p>
 				</div>
 				<div>
-					<a href="customer-grid.php" class="btn btn-primary">Top Customers</a>
+					<a href="{{ route('customers.index.grid') }}" class="btn btn-primary">Customers Grid</a>
 				</div>
 			</div>
-			    
+
 			<!-- Top Statistics -->
 			<div class="row">
                 <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
@@ -37,7 +37,7 @@
                 <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-2">
                         <div class="card-body">
-                            <h2 class="mb-1">79,503</h2>
+                            <h2 class="mb-1">{{ $customers->count() }}</h2>
                             <p>Total Customers</p>
                             <span class="mdi mdi-account-clock"></span>
                         </div>
@@ -83,7 +83,7 @@
 
 									<tbody>
 										<tr>
-											<td><img class="vendor-thumb" src="assets/img/vendor/u1.jpg" alt="user profile" /></td>
+											<td><img class="vendor-thumb" src="{{ URL('assets/img/vendor/u1.jpg') }}" alt="user profile" /></td>
 											<td>Marlee Rena</td>
 											<td>marleerena@gmail.com</td>
 											<td>+1-256-325-8652</td>
@@ -109,7 +109,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td><img class="vendor-thumb" src="assets/img/vendor/u2.jpg" alt="user profile" /></td>
+											<td><img class="vendor-thumb" src="{{ URL('assets/img/vendor/u2.jpg') }}" alt="user profile" /></td>
 											<td>Johnee Bolbi</td>
 											<td>johneebolbi@gmail.com</td>
 											<td>+5-256-325-8652</td>
@@ -135,7 +135,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td><img class="vendor-thumb" src="assets/img/vendor/u3.jpg" alt="user profile" /></td>
+											<td><img class="vendor-thumb" src="{{ URL('assets/img/vendor/u3.jpg') }}" alt="user profile" /></td>
 											<td>Johnee Bolbi</td>
 											<td>johneebolbi@gmail.com</td>
 											<td>+5-256-325-8652</td>
@@ -160,6 +160,53 @@
 												</div>
 											</td>
 										</tr>
+                                            @forelse ($customers as $customer)
+                                                <tr>
+                                                    <td><img class="vendor-thumb" src="{{ URL('assets/img/vendor/u3.jpg') }}" alt="user profile" /></td>
+                                                    <td>{{ $customer->name }}</td>
+                                                    <td>{{ $customer->email }}</td>
+                                                    <td>+234-909-9192-2467</td>
+                                                    <td>5161</td>
+                                                    <td>{{ $customer->status ? 'ACTIVE' : 'Inactive' }}</td>
+                                                    <td>2021-10-25</td>
+                                                    <td>
+                                                        <div class="btn-group mb-1">
+                                                            <a type="button" href="{{ route('categories.show', $customer->id ) }}"
+                                                                class="btn btn-outline-success">Info</a>
+                                                            <button type="button"
+                                                                class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false" data-display="static">
+                                                                <span class="sr-only">Info</span>
+                                                            </button>
+
+                                                            <div class="dropdown-menu">
+                                                                <!-- EDIT -->
+                                                                <a class="dropdown-item" href="{{ route('customers.edit', $customer->id ) }}">Edit</a>
+                                                                <a class="dropdown-item" href="https://wa.me/2349091922467?hello">Chat</a>
+                                                                <a class="dropdown-item" href="#">Send Email</a>
+                                                                <!-- ACTIVATE AND DACTIVATE -->
+                                                                @if ($customer->status == 1)
+                                                                    <form action="{{ route('customers.deactivate', $customer->id ) }}" method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button class="dropdown-item">Deactivate</button>
+                                                                    </form>
+                                                                @else
+                                                                    <form action="{{ route('customers.activate', $customer->id ) }}" method="post">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button class="dropdown-item">Activate</button>
+                                                                    </form>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            @empty
+
+                                            @endforelse
 									</tbody>
 								</table>
 							</div>
@@ -169,10 +216,10 @@
 			</div>
 
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 @endsection

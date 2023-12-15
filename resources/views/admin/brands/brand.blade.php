@@ -13,12 +13,12 @@
             <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
 				<div>
 					<h1>Brand</h1>
-					<p class="breadcrumbs"><span><a href="/">Home</a></span>
+					<p class="breadcrumbs"><span><a href="{{ route('admin') }}">Home</a></span>
 						<span><i class="mdi mdi-chevron-right"></i></span> Brand
 					</p>
 				</div>
 				<div>
-					<a href="/brand-add">
+					<a href="{{ route('brands.create') }}">
 						<button type="button" class="btn btn-primary">
 							Add Brand
 						</button>
@@ -205,14 +205,37 @@
 						</div>
 					</div>
 
+                    {{-- Brands --}}
+                    @forelse ( $brands as $brand)
+                        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6">
+                            <div class="card card-default">
+                                <div class="card-body text-center p-24px text-center mx-auto">
+                                    <div class="image mb-3" style="width: 100px; height: 100px;">
+                                        <img src="{{ URL( 'images/' . $brand->image) }} "
+                                            class="img-fluid rounded-circle h-100 w-100"
+                                            alt="Avatar Image {{ $brand->name }}">
+                                    </div>
+
+                                    <h5 class="card-title text-dark">{{ $brand->name }}</h5>
+                                    <p class="item-count">1935<span> items</span></p>
+                                    <a href="{{ route('brands.show', $brand->id) }}">
+                                        <span class="brand-delete mdi mdi-eye-outline"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div>No Brands</div>
+                    @endforelse
+
 				</div>
 			</div>
 
             <!-- END OF ALL PAGE CONTENT -->
-        </div> 
+        </div>
         <!-- End Content -->
 
-    </div> 
+    </div>
     <!-- End Content Wrapper -->
 
 @endsection

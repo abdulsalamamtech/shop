@@ -1,9 +1,7 @@
-
 <!-- Extends this page to master page -->
 @extends('layouts.master')
 
 @section('content')
-
     <!-- CONTENT WRAPPER -->
     <div class="ec-content-wrapper">
 
@@ -12,14 +10,15 @@
             <!-- ALL PAGE CONTENT -->
             <div class="breadcrumb-wrapper breadcrumb-contacts">
                 <div>
-                    <h1>Brand</h1>
-                    <p class="breadcrumbs"><span><a href="/admin">Home</a></span>
-                    <span><i class="mdi mdi-chevron-right"></i></span>Add Brand</p>
+                    <h1>Main Brands</h1>
+                    <p class="breadcrumbs"><span><a href="{{ url('admin') }}">Home</a></span>
+                        <span><i class="mdi mdi-chevron-right"></i></span>Edit Main Brand
+                    </p>
                 </div>
                 <div>
                     <a href="{{ route('brands.index') }}">
                         <button type="button" class="btn btn-primary">
-                            View All Brand
+                            View All Main Brand
                         </button>
                     </a>
                 </div>
@@ -29,38 +28,46 @@
                     <div class="ec-cat-list card card-default mb-24px">
                         <div class="card-body">
                             <div class="ec-cat-form">
-                                <h4>Add New Brand</h4>
+                                <h4>Edit brand</h4>
 
-                                <form action="{{ route('brands.store') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('brands.update', $brand->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    @method('POST')
-                                    <!-- BRAND NAME -->
+                                    @method('put')
+                                    <!-- brand NAME -->
                                     <div class="form-group row">
                                         <label for="text" class="col-12 col-form-label">brand Name</label>
                                         <div class="col-12">
-                                            <input id="brand-name" name="name" class="form-control here slug-title"
-                                            type="text" value="{{ old('image') }}"
-                                            class="form-control {{ $errors->first('image')? 'form-error' : 'form-success' }}">
+                                            <input type="text" id="brand-name" name="name" value="{{ old('name')?? $brand->name }}"
+                                                class="form-control {{ $errors->first('name')? 'form-error' : 'form-success' }}">
                                             @error('name')
                                                 <span class="error">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <!-- BRAND IMAGE -->
+                                    <!-- brand IMAGE -->
                                     <div class="form-group row">
-                                        <label class="col-12 col-form-label">brand Image <span>(Best Size: 100px by 100px)</span></label>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                      <img src="{{URL('images/'. $brand->image ?? old('image')) }}" alt="brand image {{ $brand->name }}"
+                                                          class="mx-auto d-block m-2"
+                                                          height="200px" width="200px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label class="col-12 col-form-label">brand Image</label>
                                         <div class="col-12">
-                                            <input type="file" id="image" name="image" value="{{ old('image') }}"
+                                            <input type="file" id="brand-image" name="image" value="{{ old('image') }}"
                                             class="form-control {{ $errors->first('image')? 'form-error' : 'form-success' }}">
                                             @error('image')
                                                 <span class="error">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <!-- ADD BRAND BUTTON -->
+                                    <!-- ADD brand BUTTON -->
                                     <div class="row">
                                         <div class="col-12">
-                                            <button name="add_brand" type="submit" class="btn btn-primary">Add brand</button>
+                                            <button type="submit" class="btn btn-primary">Save brand</button>
                                         </div>
                                     </div>
 
@@ -78,5 +85,4 @@
 
     </div>
     <!-- End Content Wrapper -->
-
 @endsection
