@@ -24,6 +24,7 @@
     <!-- FAVICON -->
     <link href="{{ URL('assets/img/favicon.png') }}" rel="shortcut icon" />
 
+    {{-- Error Styles --}}
     <style>
         .error{
             /* color: #dc3545; */

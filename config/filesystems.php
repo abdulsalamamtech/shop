@@ -70,7 +70,10 @@ return [
     */
 
     'links' => [
+        // app.com/storage/file-name.png
         public_path('storage') => storage_path('app/public'),
+        // app.com/images/file-name.png
+        public_path('images') => storage_path('app/public/images'),
     ],
 
 ];

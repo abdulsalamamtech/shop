@@ -24,7 +24,7 @@
 
                 <!-- Dashboard -->
                 <li class="{{ (request()->is('admin') ? 'active' : 'not-active') }}">
-                    <a class="sidenav-item-link" href="/admin">
+                    <a class="sidenav-item-link" href="{{ route('admin') }}">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -40,12 +40,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/customers">
+                                <a class="sidenav-item-link" href="{{ route('customers.index') }}">
                                     <span class="nav-text">All Customers</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="admin/customers/grid">
+                                <a class="sidenav-item-link" href="{{ route('customers.index.grid') }}">
                                     <span class="nav-text">Customers Grid</span>
                                 </a>
                             </li>
@@ -55,7 +55,7 @@
                 </li>
 
                 <!-- Category -->
-                <li class="{{ (request()->is('admin/categories*') ? 'active' : 'not-active') }}  has-sub">
+                <li class="{{ ((request()->is('admin/categories*') OR request()->is('admin/sub-categories*')) ? 'active' : 'not-active') }}  has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-dns"></i>
                         <span class="nav-text">Categories</span> <b class="caret"></b>
@@ -63,22 +63,22 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/categories">
+                                <a class="sidenav-item-link" href="{{ route('categories.index') }}">
                                     <span class="nav-text">Main Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/categories/add">
+                                <a class="sidenav-item-link" href="{{ route('categories.create') }}">
                                     <span class="nav-text">Add Main Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/sub-categories">
+                                <a class="sidenav-item-link" href="{{ route('categories.sub.index') }}">
                                     <span class="nav-text">Sub Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/sub-categories/add">
+                                <a class="sidenav-item-link" href="{{ route('categories.sub.create') }}">
                                     <span class="nav-text">Add Sub Category</span>
                                 </a>
                             </li>
@@ -96,12 +96,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/brands">
+                                <a class="sidenav-item-link" href="{{ route('brands.index') }}">
                                     <span class="nav-text">All Brands</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="admin/brands/add">
+                                <a class="sidenav-item-link" href="{{ route('brands.create') }}">
                                     <span class="nav-text">Add Brand</span>
                                 </a>
                             </li>

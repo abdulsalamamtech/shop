@@ -18,8 +18,8 @@ return new class extends Migration
             $table->decimal('price');
             $table->string('tags');
             $table->string('quantity');
-            $table->string('short_descriptin');
-            $table->string('descriptin');
+            $table->string('short_description');
+            $table->string('description');
             $table->string('information');
             $table->string('product_images');
             $table->string('colors');
