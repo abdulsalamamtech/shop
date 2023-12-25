@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::inRandomOrder()->get();
-        return view('admin.categories.category', compact('categories'));
+        $products = product::inRandomOrder()->get();
+        return view('admin.products.product', compact('products'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.category-add');
+        return view('admin.products.product-add');
     }
 
     /**
@@ -30,10 +30,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         // Validate resource information
         $validated = $request->validate([
             'name' => ['required', 'min:3', 'max:30'],
             'image' => ['required', 'image', 'mimes:png,jpg,jpeg','max:50000'],
+            'price' => ['required', 'min:2', 'max:10'],
+            'tags'  => ['required', 'max:30'],
+            'quantity'  => ['required', 'min:2', 'max:10'],
+            'short_description'  => ['required', 'min:2', 'max:10'],
+            'description'  => ['required', 'max:255'],
+            'information'  => ['required', 'max:255'],
+            'product_image'  => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:500000000'],
+            'colors'  => ['required'],
+            'sizes'  => ['required'],
+            'brand_id'  => ['required', 'min:1'],
+            'sub_category_id' => ['required', 'min:1'],
+        ], [
+            'sub_category_id.required' => 'sub category is required',
+            'product_image.required' => 'product images are required',
+            'product_image.mimes' => 'invalid product images format required(png,jpg,jpeg)',
+            'product_image.max' => 'product images can not be above 50MB',
         ]);
 
 
@@ -53,13 +70,13 @@ class CategoryController extends Controller
             }
             else{
 
-                $category = new category;
-                $category->name = $validated['name'];
-                $category->image = $newName;
-                $category->save();
+                $product = new Product;
+                $product->name = $validated['name'];
+                $product->image = $newName;
+                $product->save();
 
 
-                return redirect()->back()->with('success','category added successful!');
+                return redirect()->back()->with('success','product added successful!');
             }
         }
 
@@ -70,27 +87,27 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(Product $product)
     {
-        return $category;
+        return $product;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Product $product)
     {
-        return view("admin.categories.category-edit", compact("category"));
+        return view("admin.products.product-edit", compact("product"));
 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Product $product)
     {
 
-        // return $category;
+        // return $product;
           // Validate resource information
         $validated = $request->validate([
             'name' => ['required', 'min:3', 'max:30'],
@@ -121,20 +138,20 @@ class CategoryController extends Controller
 
         }
 
-        $category->name = $validated['name'];
-        $category->image = $newName ?? $category->image;
-        $category->save();
-        return redirect()->back()->with('success','category updated successful!');
+        $product->name = $validated['name'];
+        $product->image = $newName ?? $product->image;
+        $product->save();
+        return redirect()->back()->with('success','product updated successful!');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Product $product)
     {
-        $deleted = $category->delete();
-        // comming back.....
+        $deleted = $product->delete();
+        // coming back.....
         // to unlink the resource image
 
         if(!$deleted){
@@ -142,7 +159,7 @@ class CategoryController extends Controller
         }
         else{
 
-            return redirect()->back()->with('success','category deleted successful!');
+            return redirect()->back()->with('success','product deleted successful!');
         }
 
     }
@@ -150,22 +167,22 @@ class CategoryController extends Controller
     /**
      * Activate the specified resource.
      */
-    public function activate(Category $category)
+    public function activate(Product $product)
     {
-        $category->status = 1;
-        $category->save();
-        return redirect()->back()->with('success','category activated successful!');
+        $product->status = 1;
+        $product->save();
+        return redirect()->back()->with('success','product activated successful!');
 
     }
 
     /**
      * Deactivate the specified resource.
      */
-    public function deactivate(Category $category)
+    public function deactivate(Product $product)
     {
-        $category->status = 0;
-        $category->save();
-        return redirect()->back()->with('success','category deactivated successful!');
+        $product->status = 0;
+        $product->save();
+        return redirect()->back()->with('success','product deactivated successful!');
 
     }
 }

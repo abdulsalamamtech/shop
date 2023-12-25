@@ -13,8 +13,14 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
-        return $users;
-        // return view("users", compact("users"));
+        $customers = $users;
+        if(request()->is('admin/customers')){
+            return view("admin.customers.customer", compact("customers"));
+        }
+        if(request()->is('admin/customers/grid')){
+            return view("admin.customers.customer-grid", compact("customers"));
+        }
+        // return $users;
     }
 
     /**
@@ -69,7 +75,7 @@ class UserController extends Controller
         if(!$user){
             return back()->with('error','something went wrong, please try again later!');
         }
-        
+
         // Check if the user is comming from edit page
         if ($request->has('edit')) {
             return redirect()->back()->with('success','update successful!');
@@ -84,5 +90,28 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         return $user->delete();
+    }
+
+
+    /**
+     * Activate the specified resource.
+     */
+    public function activate(User $customer)
+    {
+        $customer->status = 1;
+        $customer->save();
+        return redirect()->back()->with('success','customer activated successful!');
+
+    }
+
+    /**
+     * Deactivate the specified resource.
+     */
+    public function deactivate(User $customer)
+    {
+        $customer->status = 0;
+        $customer->save();
+        return redirect()->back()->with('success','customer deactivated successful!');
+
     }
 }

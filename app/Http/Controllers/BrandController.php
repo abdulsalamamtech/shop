@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::inRandomOrder()->get();
-        return view('admin.categories.category', compact('categories'));
+        $brands = Brand::inRandomOrder()->get();
+        return view('admin.brands.brand', compact('brands'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.category-add');
+        return view('admin.brands.brand-add');
     }
 
     /**
@@ -37,67 +37,6 @@ class CategoryController extends Controller
         ]);
 
 
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-
-            // save the file int a variable
-            $file = $request->file('image');
-
-            // Assign a new name to the image img-name-1212343215.png
-            $newName = "img-". Str::slug($validated['name']) . "-" . Str::slug(now())  . "." . $file->guessClientExtension();
-            // Save the image to the public/images/$newName
-            $path = $file->storeAs('images', $newName, 'public');
-
-            // If the image file is not successfully saved
-            if(!$path){
-                return back()->with('error','something went wrong, please try again later!');
-            }
-            else{
-
-                $category = new category;
-                $category->name = $validated['name'];
-                $category->image = $newName;
-                $category->save();
-
-
-                return redirect()->back()->with('success','category added successful!');
-            }
-        }
-
-
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        return $category;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        return view("admin.categories.category-edit", compact("category"));
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Category $category)
-    {
-
-        // return $category;
-          // Validate resource information
-        $validated = $request->validate([
-            'name' => ['required', 'min:3', 'max:30'],
-        ]);
-
-
-        // If the request contain a new image
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
           // Validate resource information
@@ -118,22 +57,85 @@ class CategoryController extends Controller
             if(!$path){
                 return back()->with('error','something went wrong, please try again later!');
             }
+            else{
+
+                $brand = new Brand;
+                $brand->name = $validated['name'];
+                $brand->image = $newName;
+                $brand->save();
+
+
+                return redirect()->back()->with('success','brand added successful!');
+            }
+        }
+
+
+    }
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Brand $brand)
+    {
+        return $brand;
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Brand $brand)
+    {
+        return view("admin.brands.brand-edit", compact("brand"));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Brand $brand)
+    {
+          // Validate resource information
+        $validated = $request->validate([
+            'name' => ['required', 'min:3', 'max:30'],
+        ]);
+
+
+        // If the request contain a new image
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $validated = $request->validate([
+                'image' => ['required', 'image', 'mimes:png,jpg,jpeg','max:50000'],
+            ]);
+
+            // save the file int a variable
+            $file = $request->file('image');
+
+            // Assign a new name to the image img-name-1212343215.png
+            $newName = "img-". Str::slug($validated['name']) . "-" . Str::slug(now())  . "." . $file->guessClientExtension();
+            // Save the image to the public/images/$newName
+            $path = $file->storeAs('images', $newName, 'public');
+
+            // If the image file is not successfully saved
+            if(!$path){
+                return back()->with('error','something went wrong, please try again later!');
+            }
 
         }
 
-        $category->name = $validated['name'];
-        $category->image = $newName ?? $category->image;
-        $category->save();
-        return redirect()->back()->with('success','category updated successful!');
+        $brand->name = $validated['name'];
+        $brand->image = $newName ?? $brand->image;
+        $brand->save();
+        return redirect()->back()->with('success','brand updated successful!');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Brand $brand)
     {
-        $deleted = $category->delete();
+        $deleted = $brand->delete();
         // comming back.....
         // to unlink the resource image
 
@@ -142,7 +144,7 @@ class CategoryController extends Controller
         }
         else{
 
-            return redirect()->back()->with('success','category deleted successful!');
+            return redirect()->back()->with('success','brand deleted successful!');
         }
 
     }
@@ -150,22 +152,22 @@ class CategoryController extends Controller
     /**
      * Activate the specified resource.
      */
-    public function activate(Category $category)
+    public function activate(Brand $brand)
     {
-        $category->status = 1;
-        $category->save();
-        return redirect()->back()->with('success','category activated successful!');
+        $brand->status = 1;
+        $brand->save();
+        return redirect()->back()->with('success','brand activated successful!');
 
     }
 
     /**
      * Deactivate the specified resource.
      */
-    public function deactivate(Category $category)
+    public function deactivate(Brand $brand)
     {
-        $category->status = 0;
-        $category->save();
-        return redirect()->back()->with('success','category deactivated successful!');
+        $brand->status = 0;
+        $brand->save();
+        return redirect()->back()->with('success','brand deactivated successful!');
 
     }
 }
